@@ -70,7 +70,7 @@ def buscar_cercanos(latitud: float, longitud: float, grupo: str, radio_km: int =
         for lugar in resultados:
             lugares_formateados.append({
                 "nombre": lugar[0],
-                "distancia_km": round(lugar[1], 2) # Redondeamos a 2 decimales
+                "distancia_km": round(lugar[1], 2) 
             })
             
         return {
