@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  # 1. Tu base de datos NoSQL
+  
   redis-db:
     image: redis:alpine
     container_name: redis_turismo
@@ -10,19 +10,19 @@ services:
     volumes:
       - redis_data:/data # Para que no se borren los lugares si apagas el contenedor
 
-  # 2. Tu API REST (Backend)
+  
   backend:
-    build: ./backend  # Busca el Dockerfile en la carpeta "backend"
+    build: ./backend  
     container_name: backend_api
     ports:
-      - "3000:3000"   # Podés cambiar el puerto según el framework que uses
+      - "3000:3000"   
     depends_on:
-      - redis-db      # Se asegura de que Redis levante primero
+      - redis-db      
     environment:
       - REDIS_HOST=redis-db
       - REDIS_PORT=6379
 
-  # 3. Tu cliente (Frontend)
+  
   frontend:
     build: ./frontend 
     container_name: frontend_web
